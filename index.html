@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="שרות לחלון - תיקון חלונות, תריסים ועבודות אלומיניום" />
+  <title>שרות לחלון</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #e67e22;
+      --orange-dark: #ca6f1e;
+      --orange-light: #f39c12;
+      --dark: #1a1a1a;
+      --gray: #555;
+      --light-gray: #f5f5f5;
+      --white: #fff;
+      --border: #ddd;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      direction: rtl;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--orange);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1.2;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+    }
+
+    nav ul li a {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--dark);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ===== SECTIONS (pages) ===== */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 90px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 62px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .hero h2 {
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 2px solid transparent;
+      font-family: 'Heebo', sans-serif;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--orange);
+    }
+
+    .btn-white:hover { background: #f0f0f0; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,0.15); }
+
+    /* ===== CONTACT STRIP ===== */
+    .contact-strip {
+      background: var(--dark);
+      color: var(--white);
+      padding: 18px 20px;
+      text-align: center;
+    }
+
+    .contact-strip a {
+      color: var(--orange-light);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-strip a:hover { text-decoration: underline; }
+
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 70px 20px;
+      background: var(--light-gray);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      margin-bottom: 50px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      transform: translateX(50%);
+      width: 60px;
+      height: 4px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    .features-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--orange);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+
+    /* ===== SERVICES PAGE ===== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+    }
+
+    .services-section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 32px 28px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(230,126,34,0.15);
+    }
+
+    .service-card .service-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--orange);
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ===== GALLERY PAGE ===== */
+    .gallery-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border: 2px solid var(--border);
+      border-radius: 30px;
+      background: var(--white);
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.2s;
+      color: var(--dark);
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--light-gray);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 20px 10px 8px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-item:hover .caption { opacity: 1; }
+
+    /* ===== ABOUT PAGE ===== */
+    .about-section {
+      padding: 70px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .about-text h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--orange);
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .about-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-list li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    /* ===== CONTACT PAGE ===== */
+    .contact-section {
+      padding: 70px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .contact-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--orange);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .contact-item .icon {
+      width: 42px;
+      height: 42px;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-item a { color: var(--dark); }
+    .contact-item a:hover { color: var(--orange); }
+
+    .contact-form h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--orange);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--gray);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 15px;
+      direction: rtl;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+    }
+
+    .form-group textarea { height: 120px; resize: vertical; }
+
+    .btn-orange {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 14px 36px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      transition: background 0.2s;
+      width: 100%;
+    }
+
+    .btn-orange:hover { background: var(--orange-dark); }
+
+    .form-success {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 14px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 50px 20px 24px;
+      margin-top: 60px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: #bbb;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--orange); }
+
+    .footer-col p {
+      color: #bbb;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer-col a {
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .footer-col a:hover { color: var(--orange); }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: var(--white);
+      font-size: 36px;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      padding: 8px 24px;
+    }
+
+    .mobile-nav a:hover { color: var(--orange); }
+
+    .mobile-close {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: none;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+
+      .about-inner,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img { order: -1; }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo" onclick="showPage('home')" style="cursor:pointer">
+      <img src="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png" alt="שרות לחלון" onerror="this.style.display='none'" />
+      <div class="logo-text">שרות לחלון</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">בית</a></li>
+        <li><a href="#" onclick="showPage('services')" id="nav-services">שירותים</a></li>
+        <li><a href="#" onclick="showPage('gallery')" id="nav-gallery">גלריה</a></li>
+        <li><a href="#" onclick="showPage('about')" id="nav-about">אודות</a></li>
+        <li><a href="#" onclick="showPage('contact')" id="nav-contact">צור קשר</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="toggleMobileNav()">✕</button>
+  <a href="#" onclick="showPage('home');toggleMobileNav()">בית</a>
+  <a href="#" onclick="showPage('services');toggleMobileNav()">שירותים</a>
+  <a href="#" onclick="showPage('gallery');toggleMobileNav()">גלריה</a>
+  <a href="#" onclick="showPage('about');toggleMobileNav()">אודות</a>
+  <a href="#" onclick="showPage('contact');toggleMobileNav()">צור קשר</a>
+</div>
+
+<!-- ============ PAGE: HOME ============ -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <h1>שרות לחלון</h1>
+    <h2>איתך לכל פתרון</h2>
+    <div class="hero-btns">
+      <button class="btn btn-white" onclick="showPage('contact')">צור קשר</button>
+      <button class="btn btn-outline" onclick="showPage('services')">השירותים שלנו</button>
+    </div>
+  </div>
+
+  <div class="contact-strip">
+    <span>לתיאום ביקור מקצועי: </span>
+    <a href="tel:0523159988">052-3159988</a>
+  </div>
+
+  <section class="features">
+    <h2 class="section-title">למה אנחנו?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🚐</div>
+        <h3>מעבדה ניידת לתיקון כל סוגי התריסים והמנועים</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>תיקון תריס גלילה חשמלי</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🪟</div>
+        <h3>תיקון חלונות ממד מכל הסוגים</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>שירות אישי ומותאם לדרישות הדינמיות של הלקוח</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>עמידה בדרישות איכות ללא פשרות</h3>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>שירות מקצועי, מהיר ואמין</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services preview -->
+  <section style="padding: 70px 20px; max-width: 1100px; margin: 0 auto;">
+    <h2 class="section-title">השירותים שלנו</h2>
+    <div class="services-grid">
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🪟</div>
+        <h3>תיקון חלונות</h3>
+        <p>תיקון חלונות הזזה ופתיחה מאלומיניום מכל הסוגים. מומחה לתיקון חלונות ממד ודריי קיפ.</p>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🔧</div>
+        <h3>תיקון תריסי גלילה חשמלי וידני</h3>
+        <p>החלפת מנועים ותיקון תקלות בתריסי גלילה חשמלי וידני.</p>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🏗️</div>
+        <h3>עבודות אלומיניום כלליות</h3>
+        <p>ביצוע כל עבודות האלומיניום לבתים פרטיים ובניינים.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ PAGE: SERVICES ============ -->
+<div class="page" id="page-services">
+  <div class="page-hero">
+    <h1>השירותים שלנו</h1>
+  </div>
+  <section class="services-section">
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🪟</div>
+        <h3>תיקון חלונות</h3>
+        <p>תיקון חלונות הזזה ופתיחה מאלומיניום מכל הסוגים. מומחה לתיקון חלונות ממד ודריי קיפ.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>תיקון תריסי גלילה חשמלי וידני</h3>
+        <p>החלפת מנועים ותיקון תקלות בתריסי גלילה חשמלי וידני.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>עבודות אלומיניום כלליות</h3>
+        <p>ביצוע כל עבודות האלומיניום לבתים פרטיים ובניינים.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>חנות אינטרנט עשה זאת בעצמך</h3>
+        <p>שרות לחלון — פרזול לחלונות ודלתות אלומיניום עד אליך.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PAGE: GALLERY ============ -->
+<div class="page" id="page-gallery">
+  <div class="page-hero">
+    <h1>גלריה</h1>
+  </div>
+  <section class="gallery-section">
+    <div class="gallery-tabs">
+      <button class="tab-btn active" onclick="filterGallery('all', this)">הכל</button>
+      <button class="tab-btn" onclick="filterGallery('aluminum', this)">עבודות אלומיניום</button>
+      <button class="tab-btn" onclick="filterGallery('shutter', this)">תריסי גלילה</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+</div>
+
+<!-- ============ PAGE: ABOUT ============ -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <h1>אודות</h1>
+  </div>
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="about-img">
+        <img src="https://images.cdn-files-a.com/uploads/653010/400_59f046b336438.jpg" alt="אודות שרות לחלון" />
+      </div>
+      <div class="about-text">
+        <h2>שרות לחלון בהנהלת משה גלם</h2>
+        <p>שרות לחלון רואה עצמה כמחויבת למתן שירות המבוסס על איכות, יעילות ומקצועיות ללא פשרות, תוך הקפדה על הרמה הגבוהה ביותר.</p>
+        <p>שרות לחלון לוקחת אותך לעולם שלם של אפשרויות — פתרונות, עיצובים וגימור גבוה עד לפרט הקטן ביותר.</p>
+        <p>אני מאמין ושומר על תחושת האינטימיות המשפחתית עם לקוחותי, תוך יצירת שם מקצועי והיצמדות לערכים של איכות ללא פשרות במוצרים וברמת השרות ללקוח.</p>
+        <ul class="about-list">
+          <li>מעבדה ניידת לתיקון כל סוגי התריסים והמנועים</li>
+          <li>תיקון תריס גלילה חשמלי</li>
+          <li>תיקון חלונות ממד מכל הסוגים</li>
+          <li>שירות אישי ומותאם לדרישות הלקוח</li>
+          <li>עמידה בדרישות איכות ללא פשרות</li>
+          <li>שירות מקצועי, מהיר ואמין</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PAGE: CONTACT ============ -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <h1>צור קשר</h1>
+  </div>
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>פרטי התקשרות</h3>
+        <div class="contact-item">
+          <div class="icon">📞</div>
+          <div><a href="tel:0523159988">052-3159988</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">✉️</div>
+          <div><a href="mailto:info@service-window.co.il">info@service-window.co.il</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div>ישראל</div>
+        </div>
+        <div class="contact-item">
+          <div class="icon">👥</div>
+          <div><a href="https://www.facebook.com/0523159988moshe/?ref=settings" target="_blank">עמוד פייסבוק</a></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>שלח הודעה</h3>
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="הכנס שם מלא" id="cName" />
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="הכנס מספר טלפון" id="cPhone" />
+        </div>
+        <div class="form-group">
+          <label>הודעה</label>
+          <textarea placeholder="כתוב את פנייתך כאן..." id="cMsg"></textarea>
+        </div>
+        <button class="btn-orange" onclick="submitForm()">שלח הודעה</button>
+        <div class="form-success" id="formSuccess">✅ הודעתך נשלחה בהצלחה! נחזור אליך בהקדם.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>שרות לחלון</h4>
+      <p>איתך לכל פתרון.<br/>מקצועיות, איכות ואמינות — ללא פשרות.</p>
+    </div>
+    <div class="footer-col">
+      <h4>ניווט מהיר</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home')">בית</a></li>
+        <li><a href="#" onclick="showPage('services')">שירותים</a></li>
+        <li><a href="#" onclick="showPage('gallery')">גלריה</a></li>
+        <li><a href="#" onclick="showPage('about')">אודות</a></li>
+        <li><a href="#" onclick="showPage('contact')">צור קשר</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>צור קשר</h4>
+      <p>
+        <a href="tel:0523159988">052-3159988</a><br/>
+        <a href="mailto:info@service-window.co.il">info@service-window.co.il</a><br/>
+        <a href="https://www.facebook.com/0523159988moshe/" target="_blank">פייסבוק</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    זכויות יוצרים © 2026 שרות לחלון — כל הזכויות שמורות
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+  // ===== GALLERY DATA =====
+  const galleryItems = [
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59db7375b0d3e.jpg', caption: 'דלת 2000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59db73963d395.jpg', caption: '', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59db739c32f74.jpg', caption: 'חלון 4500', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59db73a136aec.jpg', caption: 'חלון כיס כפול 7000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59db73a328a3b.jpg', caption: 'דלת 2000 + חלון + קבועים', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59db73a596a2b.jpg', caption: 'חלון משופע עליית גג', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e5aa8aa2479.jpg', caption: 'דלת רשת', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e5ae4d3dfb4.jpg', caption: 'דלתות הזזה 9000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e5ae7d5880c.jpg', caption: 'דלת 2000 + קבוע', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9ebb3b2.jpg', caption: 'חלון 1700', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9edec6d.jpg', caption: 'דלתות 2000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9ece8fa.jpg', caption: 'חלון הזזה 7300 בלגי', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f702c5.jpg', caption: 'תריס אור חשמלי + ארגז חיצוני', cat: 'shutter' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f83d9a.jpg', caption: 'דלת 2000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f17f49.jpg', caption: 'דלת 2000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cbe8bc6.jpeg', caption: 'חלון 1700 בלגי + חלוקות', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cc7a704.jpeg', caption: 'חלון הזזה 7000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cc70599.jpeg', caption: 'חלון הזזה 7000 - דגם רועי', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cd9f93e.jpeg', caption: 'דלת 2000 + חלון 7000', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66ce2d2d5.jpeg', caption: 'תריס פתיחה 1300 בלגי', cat: 'shutter' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cf0dd8a.jpeg', caption: 'דלתות הזזה 7000 + תריס הזזה', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d09ba01.jpeg', caption: 'חלון דרי קיפ 4300', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d0ddab4.jpeg', caption: 'דלת 4300 בלגי + חלון 1700', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d1643f4.jpeg', caption: 'דלת 4300 + חלון פתיחה', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d132d54.jpeg', caption: 'תריס הזזה 7000 + שלב 1200', cat: 'shutter' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d16460d.jpeg', caption: 'דלתות פתיחה 4300 בלגי + חלוקות', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d1f2e55.jpeg', caption: 'דלתות 7000 + חלוקות', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d4b1610.jpeg', caption: 'דלתות 4300 בלגי', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5d18447f96fcf.jpeg', caption: 'חלון קיפ 4300', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5d1844803a1c6.jpeg', caption: 'חלון פתיחה בלגי + קבוע', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5d1844802ae7f.jpeg', caption: 'חלון רפפה זכוכית', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5d1844803a32d.jpeg', caption: 'דלת מעבר 4300', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5d18448047e18.jpeg', caption: 'חלון 7000 + קבוע + פינוי לצנרת', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_5e287bead36db.jpg', caption: 'סגירת מטבחון חיצוני', cat: 'aluminum' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_64c799a2f1495.jpg', caption: '', cat: 'shutter' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_61797229e829b.jpg', caption: '', cat: 'shutter' },
+    { src: 'https://images.cdn-files-a.com/uploads/653010/2000_6179729c383ba.jpg', caption: '', cat: 'shutter' },
+  ];
+
+  function renderGallery(filter) {
+    const grid = document.getElementById('galleryGrid');
+    const items = filter === 'all' ? galleryItems : galleryItems.filter(i => i.cat === filter);
+    grid.innerHTML = items.map((item, idx) => `
+      <div class="gallery-item" onclick="openLightbox('${item.src}')">
+        <img src="${item.src}" alt="${item.caption}" loading="lazy" />
+        ${item.caption ? `<div class="caption">${item.caption}</div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGallery(cat);
+  }
+
+  renderGallery('all');
+
+  // ===== NAVIGATION =====
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    const navEl = document.getElementById('nav-' + page);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  // ===== LIGHTBOX =====
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ===== MOBILE NAV =====
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  // ===== CONTACT FORM =====
+  function submitForm() {
+    const name = document.getElementById('cName').value.trim();
+    const phone = document.getElementById('cPhone').value.trim();
+    if (!name || !phone) { alert('נא למלא שם וטלפון'); return; }
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('cName').value = '';
+    document.getElementById('cPhone').value = '';
+    document.getElementById('cMsg').value = '';
+  }
+</script>
+</body>
+</html>
