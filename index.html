@@ -53,10 +53,10 @@
 <link rel="icon" type="image/png" href="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png"/>
 <link rel="manifest" href="/manifest.json"/>
 <meta name="theme-color" content="#e8770a"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="שרות לחלון"/>
-<link rel="apple-touch-icon" href="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png"/>
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/dzhpunwii/image/upload/w_192,h_192,c_fill/2000_5cef6b7168b18_khmh8a"/>
 <script>
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
@@ -467,7 +467,10 @@ footer ul li a:hover{color:var(--white)}
   <div class="container">
     <div class="gallery-filter">
       <button class="filter-btn active" onclick="filterGal('all',this)">הכל</button>
-      <button class="filter-btn" onclick="filterGal('aluminum',this)">עבודות אלומיניום</button>
+      <button class="filter-btn" onclick="filterGal('sliding-windows',this)">חלונות הזזה</button>
+      <button class="filter-btn" onclick="filterGal('opening-windows',this)">חלונות פתיחה</button>
+      <button class="filter-btn" onclick="filterGal('opening-doors',this)">דלתות פתיחה</button>
+      <button class="filter-btn" onclick="filterGal('sliding-doors',this)">דלתות הזזה</button>
       <button class="filter-btn" onclick="filterGal('shutter',this)">תריסי גלילה</button>
     </div>
     <div class="gallery-grid" id="galGrid"></div>
@@ -606,60 +609,99 @@ document.addEventListener('click',function(e){
 </div>
 
 <script>
-const galleryItems=[
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db7375b0d3e.jpg',caption:'דלת 2000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73963d395.jpg',caption:'',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db739c32f74.jpg',caption:'חלון 4500',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73a136aec.jpg',caption:'חלון כיס כפול 7000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73a328a3b.jpg',caption:'דלת 2000 + חלון + קבועים',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73a596a2b.jpg',caption:'חלון משופע עליית גג',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e5aa8aa2479.jpg',caption:'דלת רשת',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e5ae4d3dfb4.jpg',caption:'דלתות הזזה 9000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e5ae7d5880c.jpg',caption:'דלת 2000 + קבוע',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9ebb3b2.jpg',caption:'חלון 1700',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9edec6d.jpg',caption:'דלתות 2000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9ece8fa.jpg',caption:'חלון הזזה 7300 בלגי',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f702c5.jpg',caption:'תריס אור חשמלי + ארגז חיצוני',cat:'shutter'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f83d9a.jpg',caption:'דלת 2000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f17f49.jpg',caption:'דלת 2000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cbe8bc6.jpeg',caption:'חלון 1700 בלגי + חלוקות',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cc7a704.jpeg',caption:'חלון הזזה 7000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cc70599.jpeg',caption:'חלון הזזה 7000 - דגם רועי',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cd9f93e.jpeg',caption:'דלת 2000 + חלון 7000',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66ce2d2d5.jpeg',caption:'תריס פתיחה 1300 בלגי',cat:'shutter'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cf0dd8a.jpeg',caption:'דלתות הזזה 7000 + תריס הזזה',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d09ba01.jpeg',caption:'חלון דרי קיפ 4300',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d0ddab4.jpeg',caption:'דלת 4300 בלגי + חלון 1700',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d1643f4.jpeg',caption:'דלת 4300 + חלון פתיחה',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d132d54.jpeg',caption:'תריס הזזה 7000',cat:'shutter'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d16460d.jpeg',caption:'דלתות פתיחה 4300 בלגי',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d1f2e55.jpeg',caption:'דלתות 7000 + חלוקות',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66d4b1610.jpeg',caption:'דלתות 4300 בלגי',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5d18447f96fcf.jpeg',caption:'חלון קיפ 4300',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5d1844803a1c6.jpeg',caption:'חלון פתיחה בלגי + קבוע',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5d1844802ae7f.jpeg',caption:'חלון רפפה זכוכית',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5d1844803a32d.jpeg',caption:'דלת מעבר 4300',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5d18448047e18.jpeg',caption:'חלון 7000 + קבוע',cat:'aluminum'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5e287bead36db.jpg',caption:'סגירת מטבחון חיצוני',cat:'aluminum'},
+const CLOUD = 'dzhpunwii';
+const BASE = `https://res.cloudinary.com/${CLOUD}/image/upload/w_800,q_75,f_webp`;
+const API_KEY = '769637778741689';
+
+const folderLabels = {
+  'opening-doors': 'דלתות פתיחה',
+  'opening-windows': 'חלונות פתיחה',
+  'sliding-doors': 'דלתות הזזה',
+  'sliding-windows': 'חלונות הזזה',
+  'shutter': 'תריסי גלילה'
+};
+
+let allImages = [];
+let loaded = false;
+
+async function loadGallery() {
+  if (loaded) return;
+  const grid = document.getElementById('galGrid');
+  grid.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">טוען תמונות...</div>';
+
+  try {
+    const folders = Object.keys(folderLabels);
+    const promises = folders.map(folder =>
+      fetch(`https://res.cloudinary.com/${CLOUD}/image/list/${folder}.json`)
+        .then(r => r.ok ? r.json() : {resources:[]})
+        .then(data => (data.resources || []).map(img => ({
+          src: `${BASE}/${folder}/${img.public_id.split('/').pop()}`,
+          caption: '',
+          cat: folder
+        })))
+        .catch(() => [])
+    );
+    const results = await Promise.all(promises);
+    allImages = results.flat();
+
+    if (allImages.length === 0) {
+      // Fallback to static if API not available
+      allImages = staticGalleryItems;
+    }
+    loaded = true;
+    renderGal('all');
+  } catch(e) {
+    allImages = staticGalleryItems;
+    loaded = true;
+    renderGal('all');
+  }
+}
+
+// Static fallback
+const staticGalleryItems = [
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db7375b0d3e.jpg',caption:'דלת 2000',cat:'opening-doors'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73963d395.jpg',caption:'',cat:'opening-doors'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db739c32f74.jpg',caption:'חלון 4500',cat:'opening-windows'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73a136aec.jpg',caption:'חלון כיס כפול 7000',cat:'sliding-windows'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73a328a3b.jpg',caption:'דלת 2000 + חלון + קבועים',cat:'opening-doors'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59db73a596a2b.jpg',caption:'חלון משופע עליית גג',cat:'opening-windows'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e5ae4d3dfb4.jpg',caption:'דלתות הזזה 9000',cat:'sliding-doors'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e5ae7d5880c.jpg',caption:'דלת 2000 + קבוע',cat:'opening-doors'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9ebb3b2.jpg',caption:'חלון 1700',cat:'opening-windows'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_59e63b9f702c5.jpg',caption:'תריס חשמלי',cat:'shutter'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66cc7a704.jpeg',caption:'חלון הזזה 7000',cat:'sliding-windows'},
+  {src:'https://images.cdn-files-a.com/uploads/653010/2000_5cef66ce2d2d5.jpeg',caption:'תריס פתיחה',cat:'shutter'},
   {src:'https://images.cdn-files-a.com/uploads/653010/2000_64c799a2f1495.jpg',caption:'',cat:'shutter'},
   {src:'https://images.cdn-files-a.com/uploads/653010/2000_61797229e829b.jpg',caption:'',cat:'shutter'},
-  {src:'https://images.cdn-files-a.com/uploads/653010/2000_6179729c383ba.jpg',caption:'',cat:'shutter'},
 ];
 
 function renderGal(filter){
   const g=document.getElementById('galGrid');
-  const items=filter==='all'?galleryItems:galleryItems.filter(i=>i.cat===filter);
+  const items=filter==='all'?allImages:allImages.filter(i=>i.cat===filter);
+  if(items.length===0){
+    g.innerHTML='<div style="text-align:center;padding:40px;color:var(--text-muted)">אין תמונות בקטגוריה זו</div>';
+    return;
+  }
   g.innerHTML=items.map(it=>`
     <div class="gal-item" onclick="openLb('${it.src}')">
       <img src="${it.src}" alt="${it.caption}" loading="lazy"/>
       ${it.caption?`<div class="gal-caption"><span>${it.caption}</span></div>`:''}
     </div>`).join('');
 }
+
 function filterGal(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');renderGal(cat);
+  btn.classList.add('active');
+  renderGal(cat);
 }
-renderGal('all');
+
+// Load gallery when page becomes visible
+const origShowPage = showPage;
+function showPage(p){
+  origShowPage(p);
+  if(p==='gallery') loadGallery();
+  return false;
+}
 
 // SLIDESHOW
 let curSlide=0;
