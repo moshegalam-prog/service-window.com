@@ -218,7 +218,8 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .filter-btn{padding:9px 22px;border-radius:30px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;color:var(--text-muted);transition:.2s}
 .filter-btn.active,.filter-btn:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.gal-item{aspect-ratio:1;overflow:hidden;border-radius:var(--radius);background:var(--off-white);cursor:pointer;position:relative}
+.gal-item{aspect-ratio:1;overflow:hidden;border-radius:var(--radius);background:var(--off-white);cursor:pointer;position:relative;opacity:0;transform:translateY(16px);transition:opacity .4s ease, transform .4s ease}
+.gal-item.visible{opacity:1;transform:translateY(0)}
 .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
 .gal-item:hover img{transform:scale(1.08)}
 .gal-caption{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(28,43,58,.85));display:flex;align-items:flex-end;padding:12px;opacity:0;transition:opacity .2s}
@@ -589,8 +590,6 @@ footer ul li a:hover{color:var(--white)}
     <p>© 2026 שרות לחלון — כל הזכויות שמורות</p>
   </div>
 </footer>
-
-
 <div id="wa-float-wrap">
   <div id="wa-popup">
     <div class="wa-popup-title">פתח עם</div>
@@ -748,6 +747,17 @@ function renderGal(filter){
       <img src="${it.src}" alt="${it.caption}" loading="lazy"/>
       ${it.caption?`<div class="gal-caption"><span>${it.caption}</span></div>`:''}
     </div>`).join('');
+
+  // Intersection Observer for entrance animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if(entry.isIntersecting){
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.1});
+  g.querySelectorAll('.gal-item').forEach(el => observer.observe(el));
 }
 function filterGal(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
