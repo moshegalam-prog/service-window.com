@@ -197,7 +197,7 @@
         <section class="animate-slide-up">
             <div class="flex items-center gap-2 mb-5 px-1">
                 <div class="w-1 h-5 bg-brandGold rounded-full" style="box-shadow:0 0 10px #FBBC04"></div>
-                <h3 class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] italic">יועץ חכם — Claude AI</h3>
+                <h3 class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] italic">יועץ תיקונים חכם</h3>
             </div>
             <div class="glass-panel rounded-[2.5rem] p-6 shadow-2xl relative overflow-hidden" style="border-color:rgba(251,188,4,0.2)">
                 <div class="absolute top-0 right-0 w-32 h-32 rounded-full" style="background:rgba(251,188,4,0.05);filter:blur(3rem)"></div>
@@ -206,7 +206,7 @@
                     class="w-full bg-white/5 border border-white/10 rounded-2xl p-5 text-sm focus:outline-none focus:border-yellow-400 transition-all mb-4 resize-none text-white text-right placeholder:text-gray-600 shadow-inner" dir="rtl"></textarea>
                 <button id="ai-btn" onclick="consultAI()" class="w-full text-black font-black py-4 rounded-2xl text-sm flex items-center justify-center gap-3 active:scale-95 transition-all" style="background:linear-gradient(to right,#FBBC04,#ca8a00);box-shadow:0 10px 20px rgba(251,188,4,0.3)">
                     <i class="fa-solid fa-sparkles"></i>
-                    <span>קבל אבחון מקצועי מ-Claude</span>
+                    <span>יועץ תיקונים חכם</span>
                 </button>
                 <div id="ai-loading" class="hidden mt-6 text-center py-4">
                     <div class="inline-block w-8 h-8 border-3 border-t-transparent rounded-full animate-spin mb-3" style="border-color:#FBBC04;border-top-color:transparent"></div>
@@ -283,7 +283,7 @@ async function consultAI() {
     loading.classList.remove('hidden');
     responseDiv.classList.add('hidden');
 
-    const GEMINI_KEY = 'AQ.Ab8RN6I532XTpVQheD_-PUMWNHNxMidCoayOlcsWe1NH4lo0wg';
+    const GEMINI_KEY = 'AQ.Ab8RN6I4vGEK9kA_rInXE3hwHl6RBq-du-0S8Qng63UNrUmbVw';
     const systemPrompt = `אתה עוזר וירטואלי מקצועי של משה גלם מ"שרות לחלון". משה הוא מומחה לאלומיניום, חלונות ממ"ד ותריסי גלילה. מוסמך Somfy. ענה בעברית מקצועית וקצרה. תן אבחון טכני משוער אך אל תתחייב למחיר. בסיום המלץ ליצור קשר עם משה בטלפון 052-3159988.`;
 
     const callGemini = async (retries = 3, backoff = 1000) => {
