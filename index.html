@@ -270,7 +270,12 @@ footer ul li a:hover{color:var(--white)}
 /* ── LIGHTBOX ── */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
 .lightbox.open{display:flex}
-.lightbox img{max-width:90vw;max-height:88vh;border-radius:var(--radius);object-fit:contain}
+.lightbox img{max-width:86vw;max-height:84vh;border-radius:var(--radius);object-fit:contain;transition:opacity .2s}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--white);font-size:28px;cursor:pointer;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s;backdrop-filter:blur(4px);z-index:2}
+.lb-nav:hover{background:rgba(255,255,255,.25)}
+.lb-prev{right:16px}
+.lb-next{left:16px}
+.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:13px;font-family:'Heebo',sans-serif}
 .lb-close{position:absolute;top:18px;left:18px;color:var(--white);font-size:34px;cursor:pointer;background:none;border:none;line-height:1;opacity:.7;transition:.2s}
 .lb-close:hover{opacity:1}
 
@@ -626,9 +631,12 @@ document.addEventListener('click',function(e){
 });
 </script>
 
-<div class="lightbox" id="lb" onclick="closeLb()">
-  <button class="lb-close">✕</button>
-  <img id="lbImg" src="" alt=""/>
+<div class="lightbox" id="lb">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-nav lb-prev" onclick="lbNavigate(-1)">‹</button>
+  <img id="lbImg" src="" alt="" onclick="lbNavigate(1)"/>
+  <button class="lb-nav lb-next" onclick="lbNavigate(1)">›</button>
+  <div class="lb-counter" id="lbCounter"></div>
 </div>
 
 <script>
@@ -786,16 +794,44 @@ function showPage(p){
   const n=document.getElementById('nav-'+p);if(n)n.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});return false;
 }
+let lbIndex = 0;
+let lbItems = [];
+
 function openLb(src){
-  document.getElementById('lbImg').src=src;
+  const filter = document.querySelector('.filter-btn.active');
+  const cat = filter ? filter.getAttribute('onclick').match(/'([^']+)'/)?.[1] : 'all';
+  lbItems = cat === 'all' ? allImages : allImages.filter(i => i.cat === cat);
+  lbIndex = lbItems.findIndex(i => i.src === src);
+  if(lbIndex === -1) lbIndex = 0;
+  showLbImage();
   document.getElementById('lb').classList.add('open');
   document.body.style.overflow='hidden';
 }
+
+function showLbImage(){
+  const img = document.getElementById('lbImg');
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = lbItems[lbIndex].src;
+    img.style.opacity = '1';
+  }, 100);
+  document.getElementById('lbCounter').textContent = `${lbIndex + 1} / ${lbItems.length}`;
+}
+
+function lbNavigate(dir){
+  lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+  showLbImage();
+}
+
 function closeLb(){
   document.getElementById('lb').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowLeft') lbNavigate(1);
+  if(e.key==='ArrowRight') lbNavigate(-1);
+});
 function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
 function submitForm() {
   const name = document.getElementById('cName').value.trim();
