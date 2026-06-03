@@ -796,6 +796,15 @@ function submitForm() {
     btn.disabled = false;
   });
 }
+
+// Direct URL navigation - e.g. service-window.com/#gallery
+function checkHash(){
+  const hash = window.location.hash.replace('#','');
+  const pages = ['home','services','gallery','about','contact'];
+  if(pages.includes(hash)) showPage(hash);
+}
+window.addEventListener('load', checkHash);
+window.addEventListener('hashchange', checkHash);
 </script>
 </body>
 </html>
