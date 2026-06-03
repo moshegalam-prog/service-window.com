@@ -197,7 +197,7 @@
         <section class="animate-slide-up">
             <div class="flex items-center gap-2 mb-5 px-1">
                 <div class="w-1 h-5 bg-brandGold rounded-full" style="box-shadow:0 0 10px #FBBC04"></div>
-                <h3 class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] italic">יועץ אלומיניום חכם</h3>
+                <h3 class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] italic">יועץ חכם — Claude AI</h3>
             </div>
             <div class="glass-panel rounded-[2.5rem] p-6 shadow-2xl relative overflow-hidden" style="border-color:rgba(251,188,4,0.2)">
                 <div class="absolute top-0 right-0 w-32 h-32 rounded-full" style="background:rgba(251,188,4,0.05);filter:blur(3rem)"></div>
@@ -206,7 +206,7 @@
                     class="w-full bg-white/5 border border-white/10 rounded-2xl p-5 text-sm focus:outline-none focus:border-yellow-400 transition-all mb-4 resize-none text-white text-right placeholder:text-gray-600 shadow-inner" dir="rtl"></textarea>
                 <button id="ai-btn" onclick="consultAI()" class="w-full text-black font-black py-4 rounded-2xl text-sm flex items-center justify-center gap-3 active:scale-95 transition-all" style="background:linear-gradient(to right,#FBBC04,#ca8a00);box-shadow:0 10px 20px rgba(251,188,4,0.3)">
                     <i class="fa-solid fa-sparkles"></i>
-                    <span>קבל אבחון מקצועי מה-AI</span>
+                    <span>קבל אבחון מקצועי מ-Claude</span>
                 </button>
                 <div id="ai-loading" class="hidden mt-6 text-center py-4">
                     <div class="inline-block w-8 h-8 border-3 border-t-transparent rounded-full animate-spin mb-3" style="border-color:#FBBC04;border-top-color:transparent"></div>
@@ -283,18 +283,13 @@ async function consultAI() {
     loading.classList.remove('hidden');
     responseDiv.classList.add('hidden');
     try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: 'claude-sonnet-4-20250514',
-                max_tokens: 1000,
-                system: `אתה עוזר וירטואלי מקצועי של משה גלם מ"שרות לחלון". משה הוא מומחה לאלומיניום, חלונות ממ"ד ותריסי גלילה חכמים. מוסמך Somfy. ענה בעברית מקצועית, אדיבה וקצרה. תן אבחון טכני משוער אך אל תתחייב למחיר. בסיום המלץ ליצור קשר עם משה בטלפון 052-3159988.`,
-                messages: [{ role: 'user', content: input }]
-            })
+            body: JSON.stringify({ message: input })
         });
         const data = await response.json();
-        const text = data.content?.[0]?.text || 'לא התקבלה תשובה, נסה שוב.';
+        const text = data.text || 'לא התקבלה תשובה, נסה שוב.';
         responseText.innerText = text;
         loading.classList.add('hidden');
         responseDiv.classList.remove('hidden');
