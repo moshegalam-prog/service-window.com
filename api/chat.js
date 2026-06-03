@@ -17,21 +17,33 @@ export default async function handler(req) {
 
     const GEMINI_KEY = process.env.GEMINI_API_KEY;
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-goog-api-key': GEMINI_KEY
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: message }] }],
+        contents: [{
+          role: 'user',
+          parts: [{ text: message }]
+        }],
         systemInstruction: {
           parts: [{ text: `אתה עוזר וירטואלי מקצועי של משה גלם מ"שרות לחלון". משה הוא מומחה לאלומיניום, חלונות ממ"ד ותריסי גלילה. מוסמך Somfy. ענה בעברית מקצועית וקצרה. תן אבחון טכני משוער אך אל תתחייב למחיר. בסיום המלץ ליצור קשר עם משה בטלפון 052-3159988.` }]
+        },
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 500
         }
       })
     });
 
     const data = await response.json();
+    
+    if (!response.ok) {
+      return new Response(JSON.stringify({ error: data.error?.message || 'API error', debug: data }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'לא התקבלה תשובה';
 
     return new Response(JSON.stringify({ text }), {
@@ -41,7 +53,7 @@ export default async function handler(req) {
       }
     });
   } catch (err) {
-    return new Response(JSON.stringify({ error: 'Server error' }), {
+    return new Response(JSON.stringify({ error: err.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     });
