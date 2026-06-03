@@ -590,35 +590,7 @@ footer ul li a:hover{color:var(--white)}
   </div>
 </footer>
 
-<!-- Mobile Fixed Call Bar -->
-<div id="mobile-cta" style="display:none;position:fixed;bottom:0;right:0;left:0;z-index:400;background:var(--steel);border-top:1px solid rgba(255,255,255,.1);padding:10px 16px;box-shadow:0 -4px 20px rgba(0,0,0,.3)">
-  <div style="display:flex;gap:10px;max-width:480px;margin:0 auto">
-    <a href="tel:0523159988" style="flex:1;background:linear-gradient(135deg,var(--orange),var(--orange-bright));color:var(--white);border-radius:10px;padding:13px;text-align:center;text-decoration:none;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 16px rgba(232,119,10,.4)">
-      📞 התקשר עכשיו
-    </a>
-    <a href="#" onclick="toggleWA();return false;" style="flex:1;background:#25d366;color:var(--white);border-radius:10px;padding:13px;text-align:center;text-decoration:none;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 16px rgba(37,211,102,.35)">
-      💬 וואטסאפ
-    </a>
-  </div>
-</div>
-<script>
-// Show mobile CTA only on mobile
-if(window.innerWidth <= 768){
-  document.getElementById('mobile-cta').style.display='block';
-  // Add padding to footer so content not hidden behind bar
-  document.querySelector('footer').style.paddingBottom='90px';
-}
-window.addEventListener('resize',function(){
-  const bar = document.getElementById('mobile-cta');
-  if(window.innerWidth <= 768){
-    bar.style.display='block';
-    document.querySelector('footer').style.paddingBottom='90px';
-  } else {
-    bar.style.display='none';
-    document.querySelector('footer').style.paddingBottom='';
-  }
-});
-</script>
+
 <div id="wa-float-wrap">
   <div id="wa-popup">
     <div class="wa-popup-title">פתח עם</div>
