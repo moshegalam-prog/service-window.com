@@ -193,36 +193,6 @@
             </div>
         </section>
 
-        <!-- AI Section -->
-        <section class="animate-slide-up">
-            <div class="flex items-center gap-2 mb-5 px-1">
-                <div class="w-1 h-5 bg-brandGold rounded-full" style="box-shadow:0 0 10px #FBBC04"></div>
-                <h3 class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] italic">יועץ תיקונים חכם</h3>
-            </div>
-            <div class="glass-panel rounded-[2.5rem] p-6 shadow-2xl relative overflow-hidden" style="border-color:rgba(251,188,4,0.2)">
-                <div class="absolute top-0 right-0 w-32 h-32 rounded-full" style="background:rgba(251,188,4,0.05);filter:blur(3rem)"></div>
-                <p class="text-[12px] text-gray-400 mb-4 font-medium italic">יש לכם תקלה? תארו אותה כאן וקבלו אבחון ראשוני:</p>
-                <textarea id="ai-input" rows="2" placeholder="למשל: הידית של הממ''ד תקועה..."
-                    class="w-full bg-white/5 border border-white/10 rounded-2xl p-5 text-sm focus:outline-none focus:border-yellow-400 transition-all mb-4 resize-none text-white text-right placeholder:text-gray-600 shadow-inner" dir="rtl"></textarea>
-                <button id="ai-btn" onclick="consultAI()" class="w-full text-black font-black py-4 rounded-2xl text-sm flex items-center justify-center gap-3 active:scale-95 transition-all" style="background:linear-gradient(to right,#FBBC04,#ca8a00);box-shadow:0 10px 20px rgba(251,188,4,0.3)">
-                    <i class="fa-solid fa-sparkles"></i>
-                    <span>יועץ תיקונים חכם</span>
-                </button>
-                <div id="ai-loading" class="hidden mt-6 text-center py-4">
-                    <div class="inline-block w-8 h-8 border-3 border-t-transparent rounded-full animate-spin mb-3" style="border-color:#FBBC04;border-top-color:transparent"></div>
-                    <p class="text-xs text-gray-500 font-bold italic tracking-widest uppercase">מנתח את הנתונים...</p>
-                </div>
-                <div id="ai-response" class="hidden mt-6 rounded-3xl p-5 animate-slide-up shadow-2xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(251,188,4,0.3)">
-                    <div class="flex items-start gap-4 text-right">
-                        <div class="w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 shadow-lg" style="background:rgba(251,188,4,0.2);color:#FBBC04">
-                            <i class="fa-solid fa-robot text-lg"></i>
-                        </div>
-                        <div id="ai-text" class="text-sm leading-relaxed text-gray-200 whitespace-pre-wrap font-medium"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <!-- Fixed Bottom Bar -->
@@ -272,34 +242,6 @@ function updateAvailability() {
     }
 }
 
-async function consultAI() {
-    const input = document.getElementById('ai-input').value.trim();
-    if (!input) return;
-    const btn = document.getElementById('ai-btn');
-    const loading = document.getElementById('ai-loading');
-    const responseDiv = document.getElementById('ai-response');
-    const responseText = document.getElementById('ai-text');
-    btn.classList.add('hidden');
-    loading.classList.remove('hidden');
-    responseDiv.classList.add('hidden');
-    try {
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: input })
-        });
-        const data = await response.json();
-        const text = data.text || 'לא התקבלה תשובה, נסה שוב.';
-        responseText.innerText = text;
-        loading.classList.add('hidden');
-        responseDiv.classList.remove('hidden');
-        btn.classList.remove('hidden');
-    } catch(err) {
-        loading.classList.add('hidden');
-        btn.classList.remove('hidden');
-        showAlert("שגיאה", "לא ניתן להתחבר ליועץ כרגע. נסה שוב מאוחר יותר.");
-    }
-}
 
 function downloadVcard() {
     const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:משה גלם - שרות לחלון\nTEL;TYPE=CELL:0523159988\nURL:https://service-window.com\nNOTE:מומחה אלומיניום וממ''ד | מוסמך Somfy\nEND:VCARD";
