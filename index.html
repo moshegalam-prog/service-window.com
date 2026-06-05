@@ -15,14 +15,14 @@
 <meta property="og:url" content="https://www.service-window.com/"/>
 <meta property="og:title" content="שרות לחלון | תיקון תריסים וחלונות אלומיניום"/>
 <meta property="og:description" content="מעבדה ניידת לתיקון כל סוגי התריסים והמנועים · תיקון תריס גלילה חשמלי · תיקון חלונות ממד · שירות אישי ומהיר"/>
-<meta property="og:image" content="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png"/>
+<meta property="og:image" content="https://res.cloudinary.com/dzhpunwii/image/upload/v1780655849/logo_transparent_full_gff1st.png"/>
 <meta property="og:locale" content="he_IL"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="שרות לחלון | תיקון תריסים וחלונות אלומיניום"/>
 <meta name="twitter:description" content="מעבדה ניידת לתיקון כל סוגי התריסים והמנועים · תיקון תריס גלילה חשמלי · תיקון חלונות ממד"/>
-<meta name="twitter:image" content="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png"/>
+<meta name="twitter:image" content="https://res.cloudinary.com/dzhpunwii/image/upload/v1780655849/logo_transparent_full_gff1st.png"/>
 
 <!-- Schema: LocalBusiness -->
 <script type="application/ld+json">
@@ -34,7 +34,7 @@
   "url": "https://www.service-window.com",
   "telephone": "+972-52-3159988",
   "email": "info@service-window.com",
-  "image": "https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png",
+  "image": "https://res.cloudinary.com/dzhpunwii/image/upload/v1780655849/logo_transparent_full_gff1st.png",
   "founder": "משה גלם",
   "areaServed": "ישראל",
   "priceRange": "$$",
@@ -50,7 +50,7 @@
 }
 </script>
 
-<link rel="icon" type="image/png" href="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png"/>
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dzhpunwii/image/upload/v1780655849/logo_transparent_full_gff1st.png"/>
 <link rel="manifest" href="/manifest.json"/>
 <meta name="theme-color" content="#e8770a"/>
 <meta name="mobile-web-app-capable" content="yes"/>
@@ -85,15 +85,7 @@ if('serviceWorker' in navigator){
 html{scroll-behavior:smooth}
 body{font-family:'Heebo',sans-serif;color:var(--text);background:var(--white);direction:rtl;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-
-/* ── HEADER PREMIUM ── */
-header{
-  background:rgba(14,22,32,0.88);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  position:sticky;top:0;z-index:100;
-  border-bottom:1px solid rgba(232,119,10,0.25);
-  box-shadow:0 4px 32px rgba(0,0,0,0.3);
-}
+header{background:rgba(14,22,32,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(232,119,10,0.25);box-shadow:0 4px 32px rgba(0,0,0,0.3)}
 .hdr{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;position:relative}
 .logo{display:flex;align-items:center;gap:12px;cursor:pointer}
 .logo img{height:46px;width:auto;filter:drop-shadow(0 2px 10px rgba(232,119,10,0.25))}
@@ -105,34 +97,18 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .hdr-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,119,10,0.45)}
 .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px;border-radius:8px}
 .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
-
-/* ── MOBILE NAV ── */
 .mobile-nav{display:none;position:fixed;inset:0;background:rgba(10,16,24,0.97);backdrop-filter:blur(24px);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:32px}
 .mobile-nav.open{display:flex}
 .mobile-nav a{font-size:28px;font-weight:700;color:var(--white);transition:.2s}
 .mobile-nav a:hover{color:var(--orange-bright)}
 .mob-close{position:absolute;top:24px;left:24px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:var(--white);font-size:24px;cursor:pointer;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center}
-
-/* ── PAGES ── */
 .page{display:none}.page.active{display:block}
-
-/* ── HERO GLASSMORPHISM ── */
 .hero{position:relative;height:100vh;min-height:620px;max-height:860px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--steel)}
 .hero-slides{position:absolute;inset:0}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease;will-change:opacity}
 .hero-slide.active{opacity:1}
 .hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,24,0.5) 0%,rgba(8,16,24,0.25) 40%,rgba(8,16,24,0.72) 100%)}
-.hero-glass{
-  position:relative;z-index:2;
-  background:rgba(8,16,24,0.55);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:28px;padding:52px 48px;
-  max-width:720px;width:calc(100% - 48px);
-  box-shadow:0 8px 64px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.08);
-  text-align:center;
-  animation:fadeUp .85s cubic-bezier(0.22,1,0.36,1) both;
-}
+.hero-glass{position:relative;z-index:2;background:rgba(8,16,24,0.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:28px;padding:52px 48px;max-width:720px;width:calc(100% - 48px);box-shadow:0 8px 64px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.08);text-align:center;animation:fadeUp .85s cubic-bezier(0.22,1,0.36,1) both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,119,10,.12);border:1px solid rgba(232,119,10,.3);color:var(--orange-bright);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:30px;margin-bottom:28px}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;box-shadow:0 0 8px rgba(232,119,10,.7);animation:dot-pulse 1.8s infinite}
@@ -145,30 +121,22 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(232,119,10,.6)}
 .btn-ghost{background:rgba(255,255,255,.08);backdrop-filter:blur(8px);color:var(--white);padding:15px 34px;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;border:1.5px solid rgba(255,255,255,.22);font-family:'Heebo',sans-serif;transition:.25s;letter-spacing:.3px}
 .btn-ghost:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.55);transform:translateY(-1px)}
-
-/* ── HERO STATS GLASS CARD ── */
 .hero-stats-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.11);border-radius:18px;padding:18px 24px;display:flex;justify-content:space-around;align-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,0.09)}
 .hero-stat{text-align:center;padding:0 16px;position:relative;flex:1}
 .hero-stat:not(:last-child)::after{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:28px;width:1px;background:rgba(255,255,255,.12)}
 .hero-stat-icon{font-size:16px;margin-bottom:4px;opacity:.8}
 .hero-stat-num{font-size:26px;font-weight:900;color:var(--orange-bright);line-height:1;text-shadow:0 0 20px rgba(232,119,10,.4)}
 .hero-stat-label{font-size:11px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:500;letter-spacing:.5px}
-
-/* ── SLIDE DOTS ── */
 .hero-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px}
 .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.28);cursor:pointer;transition:.3s;border:none}
 .dot.active{background:var(--orange);width:28px;border-radius:4px;box-shadow:0 0 10px rgba(232,119,10,.5)}
 .scroll-hint{position:absolute;bottom:68px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.35);font-size:10px;letter-spacing:1.5px;display:flex;flex-direction:column;align-items:center;gap:5px;animation:bounceY 2.2s infinite;text-transform:uppercase}
 @keyframes bounceY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
 .scroll-hint::after{content:'↓';font-size:14px}
-
-/* ── PHONE BAR ── */
 .phone-bar{background:linear-gradient(135deg,var(--orange),var(--orange-bright));padding:15px 24px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;box-shadow:0 4px 20px rgba(232,119,10,.25)}
 .phone-bar span{font-size:14px;font-weight:500;color:rgba(255,255,255,.9)}
 .phone-bar a{font-size:20px;font-weight:800;color:var(--white);display:flex;align-items:center;gap:8px;transition:.2s}
 .phone-bar a:hover{opacity:.85}
-
-/* ── SECTIONS ── */
 .section{padding:80px 24px}
 .section-alt{background:var(--off-white)}
 .container{max-width:1140px;margin:0 auto}
@@ -176,8 +144,6 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .section-head .label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;padding:4px 14px;background:var(--orange-glow);border-radius:20px;border:1px solid rgba(232,119,10,.15)}
 .section-head h2{font-size:clamp(26px,4vw,38px);font-weight:800;color:var(--text);line-height:1.2;margin-bottom:14px}
 .section-head p{font-size:16px;color:var(--text-muted);line-height:1.8;max-width:540px;margin:0 auto}
-
-/* ── WHY CARDS ── */
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .why-grid .why-card:nth-child(5){grid-column:2}
 .why-grid .why-card:nth-child(6){grid-column:3}
@@ -188,8 +154,6 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .why-icon{font-size:36px;margin-bottom:14px;display:block}
 .why-card h3{font-size:15px;font-weight:700;color:var(--text);line-height:1.4}
 .why-card p{font-size:14px;color:var(--text-muted);margin-top:8px;line-height:1.6}
-
-/* ── SERVICE CARDS ── */
 .srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 .srv-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;cursor:pointer;transition:.3s}
 .srv-card:hover{border-color:rgba(232,119,10,.25);box-shadow:0 14px 44px rgba(232,119,10,.1);transform:translateY(-3px)}
@@ -198,8 +162,6 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .srv-card h3{font-size:18px;font-weight:700;color:var(--orange);margin-bottom:10px}
 .srv-card p{font-size:14px;color:var(--text-muted);line-height:1.7}
 .srv-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;font-weight:600;color:var(--orange)}
-
-/* ── ABOUT ── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .about-img-wrap{position:relative}
 .about-img-wrap img{width:100%;border-radius:var(--radius-lg);border:3px solid var(--border)}
@@ -212,8 +174,6 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .check-list{list-style:none;margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .check-list li{font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:flex-start;gap:8px}
 .check-list li::before{content:'✓';color:var(--orange);font-weight:800;font-size:14px;flex-shrink:0;margin-top:1px}
-
-/* ── GALLERY ── */
 .gallery-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
 .filter-btn{padding:9px 22px;border-radius:30px;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-family:'Heebo',sans-serif;font-size:14px;font-weight:600;color:var(--text-muted);transition:.2s}
 .filter-btn.active,.filter-btn:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
@@ -225,8 +185,6 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .gal-caption{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(28,43,58,.85));display:flex;align-items:flex-end;padding:12px;opacity:0;transition:opacity .2s}
 .gal-item:hover .gal-caption{opacity:1}
 .gal-caption span{font-size:12px;font-weight:600;color:var(--white)}
-
-/* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
 .contact-info-wrap h3{font-size:24px;font-weight:800;margin-bottom:24px;color:var(--text)}
 .contact-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
@@ -245,14 +203,10 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 .submit-btn{width:100%;background:linear-gradient(135deg,var(--orange),var(--orange-bright));color:var(--white);border:none;padding:14px;border-radius:var(--radius);font-size:16px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;transition:.25s;box-shadow:0 4px 18px rgba(232,119,10,.3)}
 .submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,119,10,.4)}
 .form-ok{display:none;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;padding:14px;border-radius:var(--radius);text-align:center;font-weight:600;margin-top:12px}
-
-/* ── PAGE HERO ── */
 .page-hero{background:var(--steel);padding:56px 24px;text-align:center;position:relative;overflow:hidden}
 .page-hero::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent)}
 .page-hero h1{font-size:clamp(28px,5vw,46px);font-weight:800;color:var(--white)}
 .page-hero p{font-size:16px;color:rgba(255,255,255,.6);margin-top:8px}
-
-/* ── FOOTER ── */
 footer{background:var(--steel);color:var(--white);padding:60px 24px 28px}
 .footer-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px}
 .footer-brand p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;margin-top:12px;max-width:240px}
@@ -266,8 +220,6 @@ footer ul li a:hover{color:var(--white)}
 .footer-contact-item a:hover{color:var(--orange-bright)}
 .footer-bottom{max-width:1140px;margin:0 auto;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-size:13px;color:rgba(255,255,255,.4)}
-
-/* ── LIGHTBOX ── */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
 .lightbox.open{display:flex}
 .lightbox img{max-width:86vw;max-height:84vh;border-radius:var(--radius);object-fit:contain;transition:opacity .2s}
@@ -278,8 +230,6 @@ footer ul li a:hover{color:var(--white)}
 .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.6);font-size:13px;font-family:'Heebo',sans-serif}
 .lb-close{position:absolute;top:18px;left:18px;color:var(--white);font-size:34px;cursor:pointer;background:none;border:none;line-height:1;opacity:.7;transition:.2s}
 .lb-close:hover{opacity:1}
-
-/* ── WHATSAPP FLOAT ── */
 #wa-float-wrap{position:fixed;bottom:28px;left:28px;z-index:500}
 #wa-float-wrap .wa-main-btn{width:58px;height:58px;background:#25d366;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.45);cursor:pointer;transition:.25s;animation:waPulse 2.5s infinite}
 @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5),0 4px 24px rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0),0 4px 24px rgba(37,211,102,.4)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0),0 4px 24px rgba(37,211,102,.4)}}
@@ -290,8 +240,6 @@ footer ul li a:hover{color:var(--white)}
 #wa-popup a{display:flex;align-items:center;gap:12px;padding:13px 16px;text-decoration:none;color:var(--white);font-size:14px;font-weight:600;transition:.15s}
 #wa-popup a:hover{background:rgba(255,255,255,.06)}
 #wa-popup a+a{border-top:1px solid rgba(255,255,255,.07)}
-
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
   .about-grid,.contact-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -319,7 +267,7 @@ footer ul li a:hover{color:var(--white)}
 <header>
   <div class="hdr">
     <div class="logo" onclick="showPage('home')" style="flex-direction:column;align-items:flex-end;gap:4px">
-      <img src="https://images.cdn-files-a.com/uploads/653010/400_crop_5e287e294f1e3_5e287dddac36d.png" alt="שרות לחלון" onerror="this.style.display='none'"/>
+      <img src="https://res.cloudinary.com/dzhpunwii/image/upload/v1780655849/logo_transparent_full_gff1st.png" alt="שרות לחלון" onerror="this.style.display='none'"/>
     </div>
     <nav>
       <ul>
@@ -346,7 +294,6 @@ footer ul li a:hover{color:var(--white)}
 
 <!-- HOME -->
 <div class="page active" id="page-home">
-
 <div class="hero">
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=85')"></div>
@@ -362,26 +309,10 @@ footer ul li a:hover{color:var(--white)}
       <button class="btn-ghost" onclick="showPage('services')">השירותים שלנו</button>
     </div>
     <div class="hero-stats-card">
-      <div class="hero-stat">
-        <div class="hero-stat-icon">🏆</div>
-        <div class="hero-stat-num">20+</div>
-        <div class="hero-stat-label">שנות ניסיון</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon">👥</div>
-        <div class="hero-stat-num">1000+</div>
-        <div class="hero-stat-label">לקוחות מרוצים</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon">⭐</div>
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">שביעות רצון</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon" style="color:var(--orange-bright);text-shadow:0 0 12px rgba(232,119,10,.6)">⚡</div>
-        <div class="hero-stat-num" style="font-size:20px">זמין</div>
-        <div class="hero-stat-label">תיאום מיידי</div>
-      </div>
+      <div class="hero-stat"><div class="hero-stat-icon">🏆</div><div class="hero-stat-num">20+</div><div class="hero-stat-label">שנות ניסיון</div></div>
+      <div class="hero-stat"><div class="hero-stat-icon">👥</div><div class="hero-stat-num">1000+</div><div class="hero-stat-label">לקוחות מרוצים</div></div>
+      <div class="hero-stat"><div class="hero-stat-icon">⭐</div><div class="hero-stat-num">100%</div><div class="hero-stat-label">שביעות רצון</div></div>
+      <div class="hero-stat"><div class="hero-stat-icon" style="color:var(--orange-bright);text-shadow:0 0 12px rgba(232,119,10,.6)">⚡</div><div class="hero-stat-num" style="font-size:20px">זמין</div><div class="hero-stat-label">תיאום מיידי</div></div>
     </div>
   </div>
   <div class="hero-dots" id="heroDots">
@@ -424,29 +355,13 @@ footer ul li a:hover{color:var(--white)}
       <h2>השירותים שלנו</h2>
     </div>
     <div class="srv-grid">
-      <div class="srv-card" onclick="showPage('services')">
-        <div class="srv-icon-wrap">🪟</div>
-        <h3>תיקון חלונות</h3>
-        <p>תיקון חלונות הזזה ופתיחה מאלומיניום. מומחה לחלונות ממד ודריי קיפ מכל הסוגים.</p>
-        <div class="srv-arrow">לפרטים נוספים ←</div>
-      </div>
-      <div class="srv-card" onclick="showPage('services')">
-        <div class="srv-icon-wrap">🔧</div>
-        <h3>תיקון תריסים</h3>
-        <p>החלפת מנועים ותיקון תקלות בתריסי גלילה חשמלי וידני — מהיר ומקצועי.</p>
-        <div class="srv-arrow">לפרטים נוספים ←</div>
-      </div>
-      <div class="srv-card" onclick="showPage('services')">
-        <div class="srv-icon-wrap">🏗️</div>
-        <h3>עבודות אלומיניום</h3>
-        <p>ביצוע כל עבודות האלומיניום לבתים פרטיים ובניינים — דלתות, חלונות וסגירות.</p>
-        <div class="srv-arrow">לפרטים נוספים ←</div>
-      </div>
+      <div class="srv-card" onclick="showPage('services')"><div class="srv-icon-wrap">🪟</div><h3>תיקון חלונות</h3><p>תיקון חלונות הזזה ופתיחה מאלומיניום. מומחה לחלונות ממד ודריי קיפ מכל הסוגים.</p><div class="srv-arrow">לפרטים נוספים ←</div></div>
+      <div class="srv-card" onclick="showPage('services')"><div class="srv-icon-wrap">🔧</div><h3>תיקון תריסים</h3><p>החלפת מנועים ותיקון תקלות בתריסי גלילה חשמלי וידני — מהיר ומקצועי.</p><div class="srv-arrow">לפרטים נוספים ←</div></div>
+      <div class="srv-card" onclick="showPage('services')"><div class="srv-icon-wrap">🏗️</div><h3>עבודות אלומיניום</h3><p>ביצוע כל עבודות האלומיניום לבתים פרטיים ובניינים — דלתות, חלונות וסגירות.</p><div class="srv-arrow">לפרטים נוספים ←</div></div>
     </div>
   </div>
 </section>
 
-<!-- GOOGLE REVIEWS -->
 <section class="section section-alt">
   <div class="container">
     <div class="section-head">
@@ -454,7 +369,6 @@ footer ul li a:hover{color:var(--white)}
       <h2>ביקורות לקוחות</h2>
       <p>מה אומרים עלינו הלקוחות שלנו ב-Google</p>
     </div>
-    <!-- Google Rating Summary -->
     <div style="display:flex;flex-direction:column;align-items:center;gap:32px">
       <a href="https://maps.app.goo.gl/UKQexTrFbnPz3PNL7" target="_blank" style="display:inline-flex;flex-direction:column;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 40px;text-decoration:none;transition:.25s;box-shadow:0 2px 12px rgba(0,0,0,.06)" onmouseover="this.style.boxShadow='0 8px 30px rgba(0,0,0,.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)';this.style.transform='translateY(0)'">
         <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style="height:24px;width:auto"/>
@@ -462,14 +376,12 @@ footer ul li a:hover{color:var(--white)}
         <div style="font-size:22px;font-weight:800;color:var(--text)">5.0</div>
         <div style="font-size:13px;color:var(--text-muted)">לחץ לצפייה בכל הביקורות</div>
       </a>
-      <!-- Write Review CTA -->
       <a href="https://g.page/r/CV0KpXYOc-RIEAI/review" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--white);padding:14px 28px;border-radius:var(--radius);font-size:15px;font-weight:700;text-decoration:none;transition:.2s;box-shadow:0 4px 16px rgba(232,119,10,.3)" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'">
         ✍️ כתוב ביקורת ב-Google
       </a>
     </div>
   </div>
 </section>
-
 </div>
 
 <!-- SERVICES -->
@@ -595,6 +507,7 @@ footer ul li a:hover{color:var(--white)}
     <p>© 2026 שרות לחלון — כל הזכויות שמורות</p>
   </div>
 </footer>
+
 <div id="wa-float-wrap">
   <div id="wa-popup">
     <div class="wa-popup-title">פתח עם</div>
@@ -640,11 +553,10 @@ document.addEventListener('click',function(e){
 </div>
 
 <script>
-const CLOUD = 'dzhpunwii';
 const BASE = `https://res.cloudinary.com/dzhpunwii/image/upload/w_800,q_75`;
 
 const allImages = [
-    {src:`${BASE}/2000_5d1844802ae7f_1_isjrui`,caption:'',cat:'opening-windows'},
+  {src:`${BASE}/2000_5d1844802ae7f_1_isjrui`,caption:'',cat:'opening-windows'},
   {src:`${BASE}/800_59e63b9fb4743_nioxny`,caption:'',cat:'opening-windows'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.22.36_qkqdss`,caption:'',cat:'opening-windows'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.22.37_1_hqfqxi`,caption:'',cat:'opening-windows'},
@@ -652,8 +564,7 @@ const allImages = [
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.22.37_3_aicm5h`,caption:'',cat:'opening-windows'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.22.37_4_w3mb8t`,caption:'',cat:'opening-windows'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.22.37_morksq`,caption:'',cat:'opening-windows'},
-  {src:`${BASE}/800_59e63b9fb4743_nioxny`,caption:'חלון פתיחה',cat:'opening-windows'},
-    {src:`${BASE}/2000_59db73a328a3b_o1qpkg`,caption:'',cat:'opening-doors'},
+  {src:`${BASE}/2000_59db73a328a3b_o1qpkg`,caption:'',cat:'opening-doors'},
   {src:`${BASE}/2000_59e63c2140a3a_hmzk7d`,caption:'',cat:'opening-doors'},
   {src:`${BASE}/2000_59e63c3819e8c_bbc5uk`,caption:'',cat:'opening-doors'},
   {src:`${BASE}/2000_5cef66cd9f93e_ks76i8`,caption:'',cat:'opening-doors'},
@@ -683,15 +594,6 @@ const allImages = [
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_20.00.47_1_janbpx`,caption:'',cat:'opening-doors'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_20.00.47_2_ese3dd`,caption:'',cat:'opening-doors'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_20.00.47_pbdpy1`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_59e63c2140a3a_hmzk7d`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_59e63c3819e8c_bbc5uk`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_5cef66cd9f93e_ks76i8`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_5cef66d1643f4_ior9a0`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_5cef66d16460d_tq3thg`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_5cef66d4b1610_jtm09p`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/2000_5d1844803a32d_fx3yul`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/800_59db7375b0d3e_ftnajc`,caption:'',cat:'opening-doors'},
-  {src:`${BASE}/800_59e63b9f83d9a_vr5ead`,caption:'',cat:'opening-doors'},
   {src:`${BASE}/2000_5cef66cbe8bc6_parc2r`,caption:'',cat:'sliding-windows'},
   {src:`${BASE}/2000_5cef66cc70599_d9jwu0`,caption:'',cat:'sliding-windows'},
   {src:`${BASE}/2000_5cef66cc7a704_zj16xu`,caption:'',cat:'sliding-windows'},
@@ -699,7 +601,7 @@ const allImages = [
   {src:`${BASE}/2000_5d18448047e18_ul5ezr`,caption:'',cat:'sliding-windows'},
   {src:`${BASE}/800_59db73963d395_uwthlj`,caption:'',cat:'sliding-windows'},
   {src:`${BASE}/800_59db73a136aec_gcly4b`,caption:'',cat:'sliding-windows'},
-    {src:`${BASE}/2000_59e63c416646a_f3jrgx`,caption:'',cat:'sliding-doors'},
+  {src:`${BASE}/2000_59e63c416646a_f3jrgx`,caption:'',cat:'sliding-doors'},
   {src:`${BASE}/2000_5cef66cf0dd8a_uwbacv`,caption:'',cat:'sliding-doors'},
   {src:`${BASE}/2000_5cef66d1f2e55_n25uon`,caption:'',cat:'sliding-doors'},
   {src:`${BASE}/2000_5cef66d4656e2_pjsxtt`,caption:'',cat:'sliding-doors'},
@@ -707,10 +609,7 @@ const allImages = [
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.34.43_2_e8vbqi`,caption:'',cat:'sliding-doors'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.34.43_3_jjyqre`,caption:'',cat:'sliding-doors'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.34.43_fce2hh`,caption:'',cat:'sliding-doors'},
-  {src:`${BASE}/2000_5cef66cf0dd8a_uwbacv`,caption:'',cat:'sliding-doors'},
-  {src:`${BASE}/2000_5cef66d1f2e55_n25uon`,caption:'',cat:'sliding-doors'},
-  {src:`${BASE}/2000_5cef66d4656e2_pjsxtt`,caption:'',cat:'sliding-doors'},
-    {src:`${BASE}/2000_5cef6b7168b18_khmh8a`,caption:'',cat:'shutter'},
+  {src:`${BASE}/2000_5cef6b7168b18_khmh8a`,caption:'',cat:'shutter'},
   {src:`${BASE}/2000_5cef6b73b043b_flyskp`,caption:'',cat:'shutter'},
   {src:`${BASE}/2000_5cef6b73d1feb_lllv6r`,caption:'',cat:'shutter'},
   {src:`${BASE}/2000_5cef6b7402ce6_1_g6iqku`,caption:'',cat:'shutter'},
@@ -728,19 +627,6 @@ const allImages = [
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.11.49_1_hsftfy`,caption:'',cat:'shutter'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.11.49_2_r1covh`,caption:'',cat:'shutter'},
   {src:`${BASE}/WhatsApp_Image_2026-06-02_at_22.11.49_n1vldh`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b73b043b_flyskp`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b73d1feb_lllv6r`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b7402ce6_1_g6iqku`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b744d2b7_lvnjvp`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b744ddab_dtbj8n`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b746e700_yo3nzr`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5cef6b749b87d_oildxd`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_5d183a2d44791_rel6q6`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_61797229e829b_anprjh`,caption:'',cat:'shutter'},
-  {src:`${BASE}/2000_64c799a2f1495_atj20o`,caption:'',cat:'shutter'},
-  {src:`${BASE}/800_59e63c34192a7_osagga`,caption:'',cat:'shutter'},
-  {src:`${BASE}/800_5cef6b728f010_yjdbwk`,caption:'',cat:'shutter'},
-  {src:`${BASE}/800_5cef6b7295045_zh9qxs`,caption:'',cat:'shutter'},
 ];
 
 function renderGal(filter){
@@ -755,17 +641,12 @@ function renderGal(filter){
       <img src="${it.src}" alt="${it.caption}" loading="lazy"/>
       ${it.caption?`<div class="gal-caption"><span>${it.caption}</span></div>`:''}
     </div>`).join('');
-
-  // Intersection Observer for entrance animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if(entry.isIntersecting){
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach((entry,i)=>{
+      if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*60);observer.unobserve(entry.target);}
     });
-  }, {threshold: 0.1});
-  g.querySelectorAll('.gal-item').forEach(el => observer.observe(el));
+  },{threshold:0.1});
+  g.querySelectorAll('.gal-item').forEach(el=>observer.observe(el));
 }
 function filterGal(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
@@ -774,16 +655,13 @@ function filterGal(cat,btn){
 }
 renderGal('all');
 
-// SLIDESHOW
 let curSlide=0;
 const slides=document.querySelectorAll('.hero-slide');
 const dots=document.querySelectorAll('.dot');
 function goSlide(n){
-  slides[curSlide].classList.remove('active');
-  dots[curSlide].classList.remove('active');
+  slides[curSlide].classList.remove('active');dots[curSlide].classList.remove('active');
   curSlide=n;
-  slides[curSlide].classList.add('active');
-  dots[curSlide].classList.add('active');
+  slides[curSlide].classList.add('active');dots[curSlide].classList.add('active');
 }
 setInterval(()=>goSlide((curSlide+1)%slides.length),5000);
 
@@ -794,87 +672,62 @@ function showPage(p){
   const n=document.getElementById('nav-'+p);if(n)n.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});return false;
 }
-let lbIndex = 0;
-let lbItems = [];
 
+let lbIndex=0,lbItems=[];
 function openLb(src){
-  const filter = document.querySelector('.filter-btn.active');
-  const cat = filter ? filter.getAttribute('onclick').match(/'([^']+)'/)?.[1] : 'all';
-  lbItems = cat === 'all' ? allImages : allImages.filter(i => i.cat === cat);
-  lbIndex = lbItems.findIndex(i => i.src === src);
-  if(lbIndex === -1) lbIndex = 0;
+  const filter=document.querySelector('.filter-btn.active');
+  const cat=filter?filter.getAttribute('onclick').match(/'([^']+)'/)?.[1]:'all';
+  lbItems=cat==='all'?allImages:allImages.filter(i=>i.cat===cat);
+  lbIndex=lbItems.findIndex(i=>i.src===src);
+  if(lbIndex===-1)lbIndex=0;
   showLbImage();
   document.getElementById('lb').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
 function showLbImage(){
-  const img = document.getElementById('lbImg');
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = lbItems[lbIndex].src;
-    img.style.opacity = '1';
-  }, 100);
-  document.getElementById('lbCounter').textContent = `${lbIndex + 1} / ${lbItems.length}`;
+  const img=document.getElementById('lbImg');
+  img.style.opacity='0';
+  setTimeout(()=>{img.src=lbItems[lbIndex].src;img.style.opacity='1';},100);
+  document.getElementById('lbCounter').textContent=`${lbIndex+1} / ${lbItems.length}`;
 }
-
-function lbNavigate(dir){
-  lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
-  showLbImage();
-}
-
-function closeLb(){
-  document.getElementById('lb').classList.remove('open');
-  document.body.style.overflow='';
-}
+function lbNavigate(dir){lbIndex=(lbIndex+dir+lbItems.length)%lbItems.length;showLbImage();}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') closeLb();
-  if(e.key==='ArrowLeft') lbNavigate(1);
-  if(e.key==='ArrowRight') lbNavigate(-1);
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')lbNavigate(1);
+  if(e.key==='ArrowRight')lbNavigate(-1);
 });
 function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
-function submitForm() {
-  const name = document.getElementById('cName').value.trim();
-  const phone = document.getElementById('cPhone').value.trim();
-  const subject = document.getElementById('cSubject').value.trim();
-  const msg = document.getElementById('cMsg').value.trim();
-  if (!name || !phone) { alert('נא למלא שם וטלפון'); return; }
-
-  const btn = document.querySelector('.submit-btn');
-  btn.textContent = 'שולח...';
-  btn.disabled = true;
-
-  fetch('https://formspree.io/f/mwvzboqd', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({ name, phone, subject, message: msg, _replyto: 'info@service-window.com' })
+function submitForm(){
+  const name=document.getElementById('cName').value.trim();
+  const phone=document.getElementById('cPhone').value.trim();
+  const subject=document.getElementById('cSubject').value.trim();
+  const msg=document.getElementById('cMsg').value.trim();
+  if(!name||!phone){alert('נא למלא שם וטלפון');return;}
+  const btn=document.querySelector('.submit-btn');
+  btn.textContent='שולח...';btn.disabled=true;
+  fetch('https://formspree.io/f/mwvzboqd',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({name,phone,subject,message:msg,_replyto:'info@service-window.com'})
   })
-  .then(r => r.json())
-  .then(data => {
-    if (data.ok) {
-      document.getElementById('formOk').style.display = 'block';
-      ['cName','cPhone','cSubject','cMsg'].forEach(id => document.getElementById(id).value = '');
-    } else {
-      alert('שגיאה בשליחה, נסה שוב.');
-    }
-    btn.textContent = 'שלח פנייה →';
-    btn.disabled = false;
+  .then(r=>r.json())
+  .then(data=>{
+    if(data.ok){
+      document.getElementById('formOk').style.display='block';
+      ['cName','cPhone','cSubject','cMsg'].forEach(id=>document.getElementById(id).value='');
+    }else{alert('שגיאה בשליחה, נסה שוב.');}
+    btn.textContent='שלח פנייה →';btn.disabled=false;
   })
-  .catch(() => {
-    alert('שגיאה בשליחה, נסה שוב.');
-    btn.textContent = 'שלח פנייה →';
-    btn.disabled = false;
-  });
+  .catch(()=>{alert('שגיאה בשליחה, נסה שוב.');btn.textContent='שלח פנייה →';btn.disabled=false;});
 }
-
-// Direct URL navigation - e.g. service-window.com/#gallery
 function checkHash(){
-  const hash = window.location.hash.replace('#','');
-  const pages = ['home','services','gallery','about','contact'];
-  if(pages.includes(hash)) showPage(hash);
+  const hash=window.location.hash.replace('#','');
+  const pages=['home','services','gallery','about','contact'];
+  if(pages.includes(hash))showPage(hash);
 }
-window.addEventListener('load', checkHash);
-window.addEventListener('hashchange', checkHash);
+window.addEventListener('load',checkHash);
+window.addEventListener('hashchange',checkHash);
 </script>
 </body>
 </html>
