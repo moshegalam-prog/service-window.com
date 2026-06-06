@@ -11,15 +11,15 @@
   "dir": "rtl",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dzhpunwii/image/upload/w_192,h_192,c_fill/2000_5cef6b7168b18_khmh8a",
+      "src": "https://res.cloudinary.com/dzhpunwii/image/upload/w_192,h_192,c_pad,b_rgb:1c2b3a/v1780655849/logo_transparent_full_gff1st.png",
       "sizes": "192x192",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://res.cloudinary.com/dzhpunwii/image/upload/w_512,h_512,c_fill/2000_5cef6b7168b18_khmh8a",
+      "src": "https://res.cloudinary.com/dzhpunwii/image/upload/w_512,h_512,c_pad,b_rgb:1c2b3a/v1780655849/logo_transparent_full_gff1st.png",
       "sizes": "512x512",
-      "type": "image/webp",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
