@@ -9,6 +9,7 @@
 <meta name="keywords" content="תיקון חלונות, תריסי גלילה, אלומיניום, תיקון תריס חשמלי, חלונות ממד, פרזול, שרות לחלון"/>
 <meta name="robots" content="index, follow"/>
 <meta name="author" content="משה גלם — שרות לחלון"/>
+<link rel="canonical" href="https://www.service-window.com/"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
@@ -39,7 +40,7 @@
   "areaServed": "ישראל",
   "priceRange": "$$",
   "openingHours": ["Su-Th 08:00-18:00"],
-  "sameAs": ["https://www.facebook.com/0523159988moshe/"],
+  "sameAs": ["https://www.facebook.com/0523159988moshe/", "https://maps.app.goo.gl/UKQexTrFbnPz3PNL7"],
   "serviceType": [
     "תיקון חלונות אלומיניום",
     "תיקון תריסי גלילה חשמלי",
@@ -247,7 +248,7 @@ nav a.active{color:var(--orange-bright);border-bottom:2px solid var(--orange)}
 /* ── PAGE HERO ── */
 .page-hero{background:var(--steel);padding:56px 24px;text-align:center;position:relative;overflow:hidden}
 .page-hero::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent)}
-.page-hero h1{font-size:clamp(28px,5vw,46px);font-weight:800;color:var(--white)}
+.page-hero h2{font-size:clamp(28px,5vw,46px);font-weight:800;color:var(--white)}
 .page-hero p{font-size:16px;color:rgba(255,255,255,.6);margin-top:8px}
 
 /* ── FOOTER ── */
@@ -472,7 +473,7 @@ footer ul li a:hover{color:var(--white)}
 
 <!-- SERVICES -->
 <div class="page" id="page-services">
-<div class="page-hero"><h1>השירותים שלנו</h1><p>פתרונות מקצועיים לכל צורך</p></div>
+<div class="page-hero"><h2>השירותים שלנו</h2><p>פתרונות מקצועיים לכל צורך</p></div>
 <section class="section">
   <div class="container">
     <div class="srv-grid">
@@ -490,7 +491,7 @@ footer ul li a:hover{color:var(--white)}
 
 <!-- GALLERY -->
 <div class="page" id="page-gallery">
-<div class="page-hero"><h1>גלריה עבודות</h1><p>חלק מהעבודות שביצענו ברחבי הארץ</p></div>
+<div class="page-hero"><h2>גלריה עבודות</h2><p>חלק מהעבודות שביצענו ברחבי הארץ</p></div>
 <section class="section">
   <div class="container">
     <div class="gallery-filter">
@@ -508,7 +509,7 @@ footer ul li a:hover{color:var(--white)}
 
 <!-- ABOUT -->
 <div class="page" id="page-about">
-<div class="page-hero"><h1>אודות</h1><p>הכירו את שרות לחלון</p></div>
+<div class="page-hero"><h2>אודות</h2><p>הכירו את שרות לחלון</p></div>
 <section class="section">
   <div class="container">
     <div class="about-grid">
@@ -536,7 +537,7 @@ footer ul li a:hover{color:var(--white)}
 
 <!-- CONTACT -->
 <div class="page" id="page-contact">
-<div class="page-hero"><h1>צור קשר</h1><p>נשמח לעמוד לרשותך</p></div>
+<div class="page-hero"><h2>צור קשר</h2><p>נשמח לעמוד לרשותך</p></div>
 <section class="section">
   <div class="container">
     <div class="contact-grid">
@@ -633,7 +634,7 @@ document.addEventListener('click',function(e){
 <div class="lightbox" id="lb">
   <button class="lb-close" onclick="closeLb()">✕</button>
   <button class="lb-nav lb-prev" onclick="lbNavigate(-1)">‹</button>
-  <img id="lbImg" src="" alt="" onclick="lbNavigate(1)"/>
+  <img id="lbImg" alt="תצוגה מוגדלת של תמונת עבודה - שרות לחלון" onclick="lbNavigate(1)"/>
   <button class="lb-nav lb-next" onclick="lbNavigate(1)">›</button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
@@ -641,6 +642,14 @@ document.addEventListener('click',function(e){
 <script>
 const CLOUD = 'dzhpunwii';
 const BASE = `https://res.cloudinary.com/dzhpunwii/image/upload/w_800,q_75`;
+
+const CAT_LABELS = {
+  'sliding-windows':'תיקון חלון הזזה אלומיניום - שרות לחלון',
+  'opening-windows':'תיקון חלון פתיחה אלומיניום - שרות לחלון',
+  'opening-doors':'תיקון דלת פתיחה אלומיניום - שרות לחלון',
+  'sliding-doors':'תיקון דלת הזזה אלומיניום - שרות לחלון',
+  'shutter':'תיקון תריס גלילה - שרות לחלון'
+};
 
 const allImages = [
     {src:`${BASE}/2000_5d1844802ae7f_1_isjrui`,caption:'',cat:'opening-windows'},
@@ -751,7 +760,7 @@ function renderGal(filter){
   }
   g.innerHTML=items.map(it=>`
     <div class="gal-item" onclick="openLb('${it.src}')">
-      <img src="${it.src}" alt="${it.caption}" loading="lazy"/>
+      <img src="${it.src}" alt="${it.caption || CAT_LABELS[it.cat] || 'עבודת אלומיניום ותריסים - שרות לחלון'}" loading="lazy"/>
       ${it.caption?`<div class="gal-caption"><span>${it.caption}</span></div>`:''}
     </div>`).join('');
 
